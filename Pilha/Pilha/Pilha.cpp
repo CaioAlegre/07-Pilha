@@ -59,7 +59,7 @@ void menu()
 void inicializar()
 {
 
-	// se a lista j� possuir elementos
+	// se a lista já possuir elementos
 	// libera a memoria ocupada
 	NO* aux = topo;
 	while (aux != NULL) {
@@ -87,12 +87,27 @@ void push()
 	cin >> novo->valor;
 	novo->prox = NULL;
 
-
+	novo = prox-> topo;
+	topo = novo;
 }
+
 
 void pop()
 {
+	if (topo == NULL)
+	{
+		cout << "Não tem valor para remover";
 
+		return;
+	}
+
+	cout << "Dgite o elemento que deseja ser excluido: " ;
+	cin >> topo->valor;
+
+	NO* aux = topo; 
+	topo = topo->prox;
+
+	free(aux);
 	
 
 }
